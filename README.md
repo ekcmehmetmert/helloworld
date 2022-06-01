@@ -50,6 +50,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {   ## After logging in, I specified which version to tag the image as
+            dockerImage.tag([“myfirstimage”,”latest”])
             dockerImage.push("latest")
           }
         }
