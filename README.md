@@ -1,3 +1,23 @@
+###Introduction:
+
+###Dockerhub Credential:I gave dockerhub information from manage credential for login
+
+###Kubernetes Credential:first we got the information to edit the file with "cat config" in the /.minikube file.then we got the certificate information with "cat /.minikube/profiles/minikube/ca.crt".after that we got the key from "cat /.minikube/profiles/minikube/clien.key".after that we got the certificate information from "cat /.minikube/profiles/minikube/client.crt".we rearranged and saved the conf file that we got in step 1 with this information and gave it to jenkins credential(kubernetes configuration(kubeconfig)) a enter directly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 pipeline {
 
   environment {
@@ -39,7 +59,7 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "kubernetes")  ## in this step we deployed to kubernetes
         }
       }
     }
